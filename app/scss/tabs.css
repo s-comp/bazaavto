@@ -3,6 +3,7 @@
 	min-width: 320px;
 	max-width: 970px;
 	padding: 0px;
+	border-bottom: 1px solid #333;
 	margin: 0 auto;
 }
 /* Стили секций с содержанием */
@@ -10,7 +11,6 @@
 	display: none;
 	padding: 15px;
 	background: #fff;
-	border: 1px solid #ddd;
 }
 .tabs>section>p {
 	margin: 0 0 5px;
@@ -81,8 +81,8 @@
 }
 /* Стили для активной вкладки */
 .tabs>input:checked+label {
-	color: red;
-	border-bottom: 1px solid red;
+	color: #fb2539;
+	border-bottom: 2px solid #fb2539;
 }
 /* Активация секций с помощью псевдокласса :checked */
 #tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4, #tab5:checked~#content-tab5 {

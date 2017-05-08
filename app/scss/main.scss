@@ -7,7 +7,7 @@
 @import '../libs/owl.carousel/dist/assets/owl.carousel';
 @import 'my-css';
 @import '../libs/fancybox/dist/jquery.fancybox';
-@import 'tabs';
+// @import 'tabs';
 // @import 'toggle_menu';
 // @import 'burger';
 .clearfix:before,
@@ -943,6 +943,459 @@ body {
 		}
 	}
 }
+// tabs
+.section_tabs {
+	.similar_product {
+		height: 440px;
+		width: 320px;
+		margin: 135px 0 0 0;
+		padding: 40px 40px 40px;
+		.similar_product_status {
+			padding: 0;
+			color: #333;
+			&:before {
+				display: none;
+			}
+		}
+		.similar_product_descr {
+			font-size: 15px;
+			color: #999;
+
+		}
+		.similar_product_price {
+			font-size: 30px;
+			color: #999;
+			font-family: ProximaNovaBold, sans-serif;
+		}
+		.notify {
+			display: inline-block;
+	    padding: 5px 30px;
+			font-size: 14px;
+			color: #333;
+			line-height: 14px;
+	    font-family: ProximaNovaBold, sans-serif;
+			position: relative;
+			&:before {
+		    content: '';
+		    position: absolute;
+		    top: 9px;
+		    right: -50px;
+		    width: 28px;
+		    height: 20px;
+		    background: url(../img/header_sprite.png) no-repeat;
+		    background-position: -95px 0;
+			}
+		}
+		img {
+			max-width: 120px;
+		}
+		.similar_prod_bot {
+			padding: 0;
+			position: relative;
+			left: 0;
+			bottom: 0;
+			a {
+				color: #333;
+				border-bottom: 1px dotted #333;
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+	.product_comments:before {display: none;}
+}
 .wrap_tabs {
-	width: 970px;
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 68px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background-color: #eff0f3;
+		z-index: -1;
+	}
+}
+.tabs_title {
+	font-size: 20px;
+	color: #333;
+	font-weight: bold;
+	font-family: 'ProximaNovabold',sans-serif;
+}
+/* Базовый контейнер табов */
+.tabs {
+	min-width: 320px;
+	max-width: 970px;
+	padding: 0px;
+	margin: 0 auto;
+}
+/* Стили секций с содержанием */
+.tabs>section {
+	display: none;
+	padding: 30px 0 0;
+	background: #fff;
+}
+
+/* Описываем анимацию свойства opacity */
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* Прячем чекбоксы */
+.tabs>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) */
+.tabs>label {
+	display: inline-block;
+	padding: 20px 0;
+	margin:  0 35px;
+	text-align: center;
+	font-size: 16px;
+	font-family: 'ProximaNovabold',sans-serif;
+	color: #777;
+	&:first-of-type {
+		margin-left: 0;
+	}
+	&:last-of-type {
+		margin-right: 0;
+	}
+}
+
+.tabs>label:hover {
+	color: #000;
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.tabs>input:checked+label {
+	color: #fb2539;
+	border-bottom: 2px solid #fb2539;
+	font-size: 16px;
+	font-family: 'ProximaNovabold',sans-serif;
+	z-index: 1;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#tab1:checked~#content-tab1, #tab2:checked~#content-tab2, #tab3:checked~#content-tab3, #tab4:checked~#content-tab4, #tab5:checked~#content-tab5 {
+	display: block;
+}
+.content_tab {
+	width: 50%;
+	margin: 0 0 25px 0;
+	li {
+		font-size: 13px;
+		color: #333;
+		padding: 10px 25px;
+		&:nth-child(2n+1) {
+			background-color: #eff0f3;
+		}
+	}
+}
+.more_information {
+	position: relative;
+	font-size: 13px;
+	margin-left: 15px;
+	border-bottom: 1px solid #c1c1c1;
+	display: inline-block;
+	color: #333;
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: 3px;
+		left: -18px;
+		width: 14px;
+		height: 17px;
+		background: url(../img/header_sprite.png) no-repeat;
+		background-position: -165px -5px;
+		}
+}
+.main_product_descr {
+	color: #333;
+	p {
+		margin-bottom: 20px;
+	}
+}
+.wrap_description,
+.wrap_comments {
+	max-width: 970px;
+}
+#tab {max-width: 970px; position: relative;}
+.comment_form {
+	position: absolute;
+	display: inline-block;
+	top: 15px;
+	right: 40px;
+	padding: 6px 30px;
+	background-color: #ffdc2c;
+	color: #333;
+}
+#tab > input {display: none;}
+#tab > label {
+	float: left;
+	cursor: pointer;
+	margin: 15px 0 30px 0;
+	display: block;
+	padding: 5px 40px;
+	border: 1px solid #e1e1e1;
+}
+#tab > input:checked + label {
+	border: 1px solid red;
+}
+#table {clear:both;}
+.tab>input:checked+label {
+	border: 1px solid #fb2539;
+}
+#table > ul {
+	position: absolute;
+	max-width: 970px;
+	overflow: hidden;
+	display: none;
+	.product_rating {
+		padding-left: 30px;
+	}
+}
+#reviews:checked ~ #table > ul:nth-of-type(1),
+#issues:checked ~ #table > ul:nth-of-type(2)
+ {display: block;}
+.reviews,
+.issues {
+	width: 100%;
+		padding: 0 40px 0 0;
+}
+.reviews_item,
+.issues_item {
+	border-top: 1px solid #ffdc2c;
+	border-left: 1px solid #ffdc2c;
+	border-right: 1px solid #ffdc2c;
+	padding: 30px;
+}
+.reviews>li:nth-last-of-type(1) {
+	border-bottom: 1px solid #ffdc2c;
+}
+.issues>li:nth-last-of-type(1) {
+	border-bottom: 1px solid #ffdc2c;
+}
+.content {
+	width: 80%;
+	padding: 0 30px 0 0;
+	border-right: 1px solid #e9eaeb;
+	font-size: 13px;
+	color: #333;
+	a {
+		color: #333;
+		&:after {
+			content: '';
+	    position: absolute;
+	    width: 100%;
+	    height: 1px;
+	    background-color: #e9eaeb;
+	    top: 18px;
+	    left: 1px;
+		}
+		&:hover:after {
+			display: none;
+		}
+	}
+}
+.author-info {
+	font-size: 16px;
+	color: 333;
+	font-family: 'ProximaNovaBold',sans-serif;
+
+	span {
+		font-size: 13px;
+		color: #999;
+		font-family: 'ProximaNovaRegular',sans-serif;
+		padding-left: 20px;
+	}
+}
+.author_text {
+	font-size: 13px;
+	color: #333;
+	font-family: 'ProximaNovaRegular',sans-serif;
+	margin-bottom: 15px;
+}
+.advantages {
+	color: #57ae85;
+	font-family: 'ProximaNovaBold',sans-serif;
+	margin-bottom: 15px;
+	span {
+		color: #333;
+		font-family: 'ProximaNovaRegular',sans-serif;
+		padding-left: 10px;
+	}
+}
+.disadvantages {
+	color: #f8727e;
+	font-family: 'ProximaNovaBold',sans-serif;
+	margin-bottom: 15px;
+	span {
+		color: #333;
+		font-family: 'ProximaNovaRegular',sans-serif;
+		padding-left: 10px;
+	}
+}
+.content_bot {
+	color: #777;
+}
+.reply {
+	position: relative;
+	margin: 0 240px 0 35px;
+}
+.more_answers {
+	position: relative;
+}
+.positive_vote {
+	padding-left: 33px;
+	position: relative;
+	color: #57ae85;
+	font-family: 'ProximaNovaBold',sans-serif;
+	cursor: pointer;
+	&:before {
+		content: '';
+		top: -3px;
+    left: 6px;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		background: url('../img/header_sprite.png') no-repeat;
+		background-position: -157px -28px
+	}
+}
+.negative_vote {
+	padding-left: 33px;
+	position: relative;
+	color: #fb2539;
+	font-family: 'ProximaNovaBold',sans-serif;
+	cursor: pointer;
+	&:before {
+		content: '';
+		top: -3px;
+    left: 6px;
+		width: 20px;
+		height: 20px;;
+		position: absolute;
+		background: url('../img/header_sprite.png') no-repeat;
+		background-position: -179px -28px
+	}
+}
+.product_video {
+	width: 100%;
+}
+.item_product_video {
+	margin: 15px;
+	text-align: center;
+	float: left;
+	width: 48%;
+	height: 300px;
+	border: 2px solid #e9eaeb;
+	&:nth-child(2n) {
+		margin-left: 0;
+	}
+	&:nth-child(2n+1) {
+		margin-right: 0;
+	}
+}
+.article_slider_wrap {
+	position: relative;
+	max-width: 930px;
+	.title_slider {
+		top: 0;
+	}
+	.owl-nav > div {
+	  margin-top: 0;
+	  margin-right: 0;
+	  position: absolute;
+	  color: #3c3f43;
+	}
+	.owl-prev {
+		position: absolute;
+		width: 45px;
+		height: 120px;
+		top: 120px;
+		right: 0;
+		background-color: #474a4e;
+		display: block;
+		&:after {
+			position: absolute;
+			content: '';
+			top: 10px;
+			right: 15px;
+			width: 11px;
+			height: 20px;
+			background: url('../img/header_sprite.png') no-repeat;
+			background-position: -142px 0;
+		}
+	}
+	.owl-next {
+		position: absolute;
+		width: 45px;
+		height: 120px;
+		background-color: #3c3f43;
+		right: 0;
+		display: block;
+		&:after {
+			position: absolute;
+			content: '';
+			top: 10px;
+			right: 15px;
+			width: 11px;
+			height: 20px;
+			background: url('../img/header_sprite.png') no-repeat;
+			background-position: -155px 0;
+		}
+	}
+
+	.owl-item {
+		margin-left: 0;
+	}
+}
+.slider_article {
+	width: 930px;
+	.article_item {
+		margin-left: 0;
+		width: 680px;
+		border: 1px solid #000;
+	}
+}
+.article_img {
+	width: 310px;
+	height: 230px;
+	background-size: contain;
+	img {
+		overflow: hidden;
+		-webkit-background-size: cover;
+		height: 100%;
+	}
+}
+.article_content {
+	padding: 30px;
+	width: 360px;
+	height: 100%;
+}
+.article_date {
+	color: #999;
+	font-size: 12px;
+	font-family: 'ProximaNovaRegular',sans-serif;
+}
+
+.article_title {
+  line-height: 26px;
+	color: #333;
+	font-size: 20px;
+	font-family: 'ProximaNovaBold',sans-serif;
 }
